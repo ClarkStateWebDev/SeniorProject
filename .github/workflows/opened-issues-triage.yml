@@ -1,4 +1,5 @@
 # Move opened issues into the Triage column of the Backlog project
+# Workflow parameter documentation located here: https://github.com/marketplace/actions/github-project-automation
 name: Move new issues into Triage
 
 on:
