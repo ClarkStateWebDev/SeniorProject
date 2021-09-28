@@ -1,6 +1,6 @@
-# Move opened issues into the Triage column of the Backlog project
+# Automatically move newly created issues into the "To do" column of the "User Story Status" project
 # Workflow parameter documentation located here: https://github.com/marketplace/actions/github-project-automation
-name: Move new issues into Triage
+name: Move new issues into To do
 
 on:
   issues:
@@ -12,6 +12,6 @@ jobs:
     steps:
       - uses: alex-page/github-project-automation-plus@v0.8.1
         with:
-          project: Backlog
-          column: Triage
+          project: User Story Status
+          column: To do
           repo-token: ${{ secrets.WDD project workflow automation }}
