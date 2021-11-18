@@ -22,8 +22,8 @@ You will also see any lint errors in the console.
 ## Project Development Information
 ### **ProjectDevelopment** directory - contains materials related to project development including:
 
-* #### temp directory - contains useful code snippets from previous WDD courses
+1. temp directory - contains useful code snippets from previous WDD courses
 
-* #### workflow directory - contains configuration files for GitHub actions
+2. workflow directory - contains configuration files for GitHub actions
 
-* #### documentation directory - contains documentation for the project (these documents are not finalized and may be updated/edited)
+3. documentation directory - contains documentation for the project (these documents are not finalized and may be updated/edited)
