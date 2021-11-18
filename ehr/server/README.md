@@ -8,6 +8,7 @@
 * Initially have defined a simple GET route for testing
 * listens on port 8080 for incoming requests
 * MySQL DB configuration located in app/config/db.config.js
+* Note that as of version 4.16+ express now has body-parser built in so there is no need to install it as a dependency.
 
 For detailed info on how this was created, visit: [Build Node.js Rest APIs with Express & MySQL](https://www.bezkoder.com/node-js-rest-api-express-mysql/)
 

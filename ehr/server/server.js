@@ -1,9 +1,10 @@
 const express = require("express");
-// const bodyParser = require("body-parser"); /* deprecated */
+// const bodyParser = require("body-parser"); /* deprecated - as of version 4.16+ express now has body-parser built in*/
 const cors = require("cors");
 
 const app = express();
 
+//Configures the Access-Control-Allow-Origin CORS header.
 var corsOptions = {
   origin: "http://localhost:8081"
 };
