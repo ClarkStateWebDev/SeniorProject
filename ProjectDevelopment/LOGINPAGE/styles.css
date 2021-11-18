@@ -1,0 +1,16 @@
+.custom-class {
+    display: none;
+  }
+  @include media-breakpoint-up(sm) {
+    .custom-class {
+      display: block;
+    }
+  }
+  .btn-primary{
+      background-color: #f1a50a;
+      border-color: #f1a50a;
+  }
+  
+
+
+  
