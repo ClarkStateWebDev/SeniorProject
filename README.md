@@ -7,6 +7,11 @@
 
 This repository hosts the Clark State EHR application
 
+
+---
+### EHR Application
+The application code itself is located in the **ehr** directory. This directory has its own README.md
+
 ---
 ## Project Development Information
 ### **development** directory 
@@ -19,5 +24,6 @@ contains materials related to project development including:
 3. **documentation** directory - contains documentation for the project (these documents are not finalized and may be updated/edited)
 
 ---
-### EHR Application
-The application code itself is located in the **ehr** directory. This directory has its own README.md
+## Workflows Directory
+This directory contains files used to automate GitHub project workflow and is not needed to run the application itself
+
