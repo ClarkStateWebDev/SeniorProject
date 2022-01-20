@@ -25,7 +25,7 @@ class PatientBlock extends Component {
                             {/* start of patient rows */}
                             <tbody>
                             <tr>
-                                <td><img src="img/MichaelScott1.png" id='pic'/>Michael Scott</td>
+                                <td><img src="img/MichaelScott1.png" id='pic' />Michael Scott</td>
                                 <td>1245783</td>
                                 <td><button type="button" class="btn btn-warning">Edit</button></td>
                                 <td><button type="button" class="btn btn-danger">Delete</button></td>

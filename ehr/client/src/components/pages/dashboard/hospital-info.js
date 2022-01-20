@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddHospInfo from './hospInfoForm';
 
 class Vitals extends Component {
     constructor(props) {
@@ -9,11 +10,16 @@ class Vitals extends Component {
 
         return (
             <>
-               <table class="table table-borderless">
+            <div style={{margin: '10px', overflow: 'hidden'}}>
+               <table class="table table-borderless" style={{ margin: '0 auto', display: 'table', backgroundColor: '#B0D1E0', maxWidth: '100%'}}>
                     <thead>
                     <tr>
-                        <th scope="col">Hospital Information</th>
+                        <th scope="col" style={{color: '#006A99', fontWeight: 'bolder', fontSize: '20px'}}>Hospital Information</th>
                         <th></th>
+                        <th></th>
+                        <th></th>
+                        <td>Updated: 9/9/2021</td>
+                        <td>12:20pm</td>
                     </tr>
                     </thead>
                     <tbody>
@@ -41,11 +47,12 @@ class Vitals extends Component {
                         <td></td>
                         <td></td>
                         <td>
-                            <button type="button" class="btn btn-warning">Edit</button>
+                            <AddHospInfo></AddHospInfo>
                         </td>
                     </tr>
                     </tbody>
                 </table>
+            </div>    
             </>
         )}   
         

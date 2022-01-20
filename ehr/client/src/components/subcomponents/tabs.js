@@ -7,9 +7,11 @@ class Tabs extends React.Component {
     render() {
         return (
             <TabsHeader>
-                <Tab label="Appointments" />
-                <Tab label="Diagnoses" />
-                <Tab label="Disabled" />
+                <Tab label="Dashboard" />
+                <Tab label="History" href="/history"/>
+                <Tab label="Imaging" />
+                <Tab label="Labs" />
+                <Tab label="Care Plan" />
             </TabsHeader>
             
         );

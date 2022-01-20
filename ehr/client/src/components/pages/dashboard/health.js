@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddHealth from './healthForm';
 
 class Health extends Component {
     constructor(props) {
@@ -9,11 +10,17 @@ class Health extends Component {
 
         return (
             <>
-               <table class="table table-borderless">
+            <div style={{margin: '10px', overflow: 'hidden'}}>
+                <br></br>
+               <table class="table table-borderless" style={{ margin: '0 auto', display: 'table', backgroundColor: '#B0D1E0', maxWidth: '100%'}}>
                     <thead>
                     <tr>
-                        <th scope="col">Health</th>
+                        <th scope="col" style={{color: '#006A99', fontWeight: 'bolder', fontSize: '20px'}}>Health</th>
                         <th></th>
+                        <th></th>
+                        <th></th>
+                        <td>Updated: 9/9/2021</td>
+                        <td>12:20pm</td>
                     </tr>
                     </thead>
                     <tbody>
@@ -40,11 +47,12 @@ class Health extends Component {
                         <td></td>
                         
                         <td>
-                            <button type="button" class="btn btn-warning">Edit</button>
+                            <AddHealth></AddHealth>
                         </td>
                     </tr>
                     </tbody>
                 </table>
+                </div>
             </>
         )}   
         

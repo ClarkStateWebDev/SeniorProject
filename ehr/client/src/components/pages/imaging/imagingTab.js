@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import PatientOverview from './dashboard/patient-overview'
-import Vitals from './dashboard/vitals'
-import HospitalInfo from './dashboard/hospital-info'
-import Health from './dashboard/health'
+import PatientOverview from '../dashboard/patient-overview'
 import {Tabs, Tab, AppBar} from '@material-ui/core';
-import Footer from '../subcomponents/footer'
+import Footer from '../../subcomponents/footer'
 import { Breadcrumb, BreadcrumbItem } from '@hospitalrun/components'
-import AddHealth from './dashboard/healthForm';
+import ImagingTable from './imagingTable';
 
 
-class Home extends Component {
+
+class imagingTab extends Component {
 
     render() {
         
@@ -20,7 +18,7 @@ class Home extends Component {
                         Home
                     </BreadcrumbItem>
                     <BreadcrumbItem>
-                        Dashboard
+                        Imaging
                     </BreadcrumbItem>
                 </Breadcrumb>
                 <PatientOverview/>
@@ -28,21 +26,17 @@ class Home extends Component {
                  {/* Tabs */}
                  <AppBar position="static">
                         <Tabs id='tabs' style={{backgroundColor: '#89a9d0'}}>
-                            <Tab id='dashboard'class='activ' label="Dashboard" href='/'/>
+                            <Tab id='dashboard' label="Dashboard" href='/'/>
                             <Tab id='history' label="History" href='/history'/>
-                            <Tab id='imaging' label="Imaging" href='/imaging'/>
+                            <Tab id='imaging' class='activ' label="Imaging" href='/imaging'/>
                             <Tab id='labs' label="Labs" href='/labs'/>
-                            <Tab id='care' label="Care Plan" href='/'/>
+                            <Tab id='care' label="Care Plan" href='/care'/>
                         </Tabs>
                 </AppBar>
-                <Health/>
-                <br></br>
-                <Vitals/>
-                <br></br>
-                <HospitalInfo />
-                <br></br>
+                <ImagingTable></ImagingTable>
+                
                 <Footer />
             </>
         )}   
 };
-export default Home;
+export default imagingTab;

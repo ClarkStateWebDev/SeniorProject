@@ -9,35 +9,36 @@ class PatientOverview extends Component {
 
         return (
             <>
-                <div>
-                    <img src="img/MichaelScott.png" alt="..." class="card-img-left"/>
-                </div>
-                <div>
-                    <table class="table">
-                        <thead>
+            <div style={{maxWidth: '100%'}}> 
+                <div style={{float: 'inherit', maxWidth: '75'}}>
+                    
+                    <table class="table table-borderless" style={{margin: '0 auto', display: 'table', backgroundColor: '#006A99'}}>
+                    <img style={{maxWidth: '100%', float: 'left'}}src="img/MichaelScott.png" class="card-img-left"></img>
+                        <thead style={{color: 'white', float: 'left'}}>
                         <tr>
-                            <th scope="col">Name</th> 
-                            <th scope="col">Age</th>
-                            <th scope="col">Gender</th>
-                            <th scope="col">MR#</th>
-                            <th scope="col">Provider</th>
+                            <th scope="col" >Name</th> 
+                            <th scope="col" style={{paddingLeft: '63px'}}>Age</th>
+                            <th scope="col" style={{paddingLeft: '53px'}}>Gender</th>
+                            <th scope="col" style={{paddingLeft: '43px'}}>MR#</th>
+                            <th scope="col" style={{paddingLeft: '43px'}}>Provider</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <br></br><br></br>
+                        <tbody style={{color: 'white', float: 'left'}}>
                             
                         <tr>
-                            <td>Michael Scott</td>
+                            <td >Michael Scott</td>
                             <td>56</td>
                             <td>Male</td>
                             <td>1245783</td>
                             <td>Health Insurance</td>
                         </tr>
                         <tr>
-                            <td>Room #</td>
-                            <td>DOB</td>
-                            <td>Admit Date</td>
-                            <td>Code</td>
-                            <td>Allergies</td>
+                            <td style={{fontWeight: 'bold'}}>Room #</td>
+                            <td style={{fontWeight: 'bold'}}>DOB</td>
+                            <td style={{fontWeight: 'bold'}}>Admit Date</td>
+                            <td style={{fontWeight: 'bold'}}>Code</td>
+                            <td style={{fontWeight: 'bold'}}>Allergies</td>
                         </tr>
                         <tr>
                             <td>1</td>
@@ -49,6 +50,8 @@ class PatientOverview extends Component {
                         </tbody>
                     </table>
                 </div>
+            </div>    
+                
             </>
         )}   
         
