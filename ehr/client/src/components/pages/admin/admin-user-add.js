@@ -9,6 +9,7 @@ import SearchRight from '../../subcomponents/searchbar-right';
 import '../../../css/Tabs.css';
 import { Breadcrumb, BreadcrumbItem } from '@hospitalrun/components'
 import {Tabs, Tab, AppBar} from '@material-ui/core';
+import Axios from 'axios';
 
 class Admin extends Component {
     constructor(props) {
@@ -37,8 +38,17 @@ class Admin extends Component {
     }
 
     handleSubmit(event){
-        alert('hi ' + this.state.fname);
-        event.preventDefault();
+        //alert('hi ' + this.state.fname);
+        Axios.post("http://localhost:3001/user/create", {
+            firstName: this.state.fname, 
+            lastName: this.state.lname, 
+            email: this.state.email, 
+            password: this.state.password
+            }).then(
+            alert("User Added")
+        );
+        //event.preventDefault();
+        this.handleReset();
     };
 
     handleReset(event) {
