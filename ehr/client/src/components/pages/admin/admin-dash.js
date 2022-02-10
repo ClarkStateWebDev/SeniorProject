@@ -1,5 +1,5 @@
 // import statements
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import TableBlock from '../../subcomponents/staffTable';
 import PatientBlock from '../../subcomponents/patientTable';
 import Search from '../../subcomponents/searchbar';
@@ -11,8 +11,9 @@ import { Breadcrumb, BreadcrumbItem } from '@hospitalrun/components'
 import {Tabs, Tab, AppBar} from '@material-ui/core';
 
 class Admin extends Component {
-
+    
     render() {
+        
         return (  
             <>
             <div class='main'>
