@@ -1,4 +1,4 @@
-const mysql = require("mysql");
+/* const mysql = require("mysql");
 const dbConfig = require("../config/db.config.js");
 
 var connection = mysql.createPool({
@@ -9,3 +9,4 @@ var connection = mysql.createPool({
 });
 
 module.exports = connection;
+ */
