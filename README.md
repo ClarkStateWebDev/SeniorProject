@@ -5,7 +5,7 @@
 ![](https://img.shields.io/badge/Node-v12.14.1-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/npm-v6.13.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc4a)
 
-This repository hosts the Clark State EHR application
+This repository hosts the Clark State EHR application   
 
 
 ---
