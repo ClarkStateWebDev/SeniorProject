@@ -14,7 +14,7 @@ The following must be installed on your machine before you can run this project.
 ---
 
 
-## Project Setup
+## To Run Project
 
 ### 1. Database configuration
 * To run the project, you must have MySQL server installed and **running** on the host machine. 
