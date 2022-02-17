@@ -28,7 +28,7 @@ class Override extends Component {
 
                 {/* Tabs */}
                 <AppBar position="static">
-                        <Tabs id='tabs' style={{backgroundColor: '#89a9d0'}}>
+                        <Tabs id='tabs' style={{backgroundColor: '#e9ecef', color:'black'}}>
                             <Tab id='adminDash' label="Admin Dashboard" href='/admin'/>
                             <Tab id='medData' label="Medication Data" href='/med-data'/>
                             <Tab id='override' class='activ' label="Override Data" href='/override-data'/>

@@ -25,7 +25,7 @@ class NavBar extends React.Component {
                         {
                           type: 'link',
                           label: 'Patient Dashboard',
-                          href: '/',
+                          href: '/dashboard',
                         },
                         {
                           type: 'link',
@@ -36,16 +36,19 @@ class NavBar extends React.Component {
                         {
                           type: 'link',
                           label: 'Imaging',
+                          href: '/imaging',
                          
                         },
                         {
                           type: 'link',
                           label: 'Labs',
+                          href: '/labs',
                          
                         },
                         {
                           type: 'link',
                           label: 'Care Plan',
+                          href: '/care',
                          
                         },
                         {
@@ -59,16 +62,19 @@ class NavBar extends React.Component {
                           type: 'link',
                           label: 'Vitals',
                           dividerAbove: true,
+                          href: '/vitals',
 
                         },
                         {
                           type: 'link',
                           label: 'Weight',
+                          href: '/weight',
                           
                         },
                         {
                           type: 'link',
                           label: 'Pain',
+                          href: '/pain',
                           
                         },
                         {

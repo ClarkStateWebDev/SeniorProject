@@ -14,7 +14,7 @@ class ImagingTable extends Component {
                 <ImagingForm></ImagingForm>
             </div>
             {/* table */}
-                <div id="singleTable" class="table-wrapper-scroll-y my-custom-scrollbar" style={{width: '100%', padding: '10px'}}>
+                <div id="singleTable" class="table-wrapper-scroll-y my-custom-scrollbar" style={{width: '100%', padding: '15px'}}>
                         <table class="table table-borderless table-striped" >
                             {/* table header */}
                             <thead>

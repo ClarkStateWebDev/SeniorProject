@@ -10,7 +10,7 @@ class Health extends Component {
 
         return (
             <>
-            <div style={{margin: '10px', overflow: 'hidden'}}>
+            <div style={{margin: '15px', overflow: 'hidden'}}>
                 <br></br>
                <table class="table table-borderless" style={{ margin: '0 auto', display: 'table', backgroundColor: '#B0D1E0', maxWidth: '100%'}}>
                     <thead>
