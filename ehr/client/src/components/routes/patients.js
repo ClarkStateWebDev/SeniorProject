@@ -7,15 +7,26 @@ import HistoryTab from '../pages/History/historyTab';
 import imagingTab from '../pages/imaging/imagingTab';
 import LabTab from '../pages/labs/labTab';
 import CareTab from '../pages/Care Plan/careTab';
+import VitalTab from '../pages/Vital Signs/vitals';
+import WeightTab from '../pages/Weight/weightTab';
+import PainTab from '../pages/Pain/painTab';
+import InputTab from '../pages/Input/inputTab';
+import OutputTab from '../pages/output/outputTab';
 
 const patientRoutes = () => (
     <Switch>
-      <Route exact path="/" component={Home}/>
+      <Route exact path="/dashboard" component={Home}/>
       <Route exact path="/daily-care" component={DailyCare}/>
       <Route exact path="/history" component={HistoryTab}/>
       <Route exact path="/imaging" component={imagingTab}/>
       <Route exact path="/labs" component={LabTab}/>
       <Route exact path="/care" component={CareTab}/>
+      <Route exact path="/vitals" component={VitalTab}/>
+      <Route exact path="/weight" component={WeightTab}/>
+      <Route exact path="/pain" component={PainTab}/>
+      <Route exact path="/input" component={InputTab}/>
+      <Route exact path="/output" component={OutputTab}/>
+       
     </Switch>
 );
 

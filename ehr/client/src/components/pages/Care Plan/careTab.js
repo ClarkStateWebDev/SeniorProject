@@ -14,10 +14,10 @@ class CareTab extends Component {
         return (
             <>
                 <Breadcrumb>
-                    <BreadcrumbItem active>
-                        Home
-                    </BreadcrumbItem>
                     <BreadcrumbItem>
+                        Patient Selection
+                    </BreadcrumbItem>
+                    <BreadcrumbItem active>
                         History
                     </BreadcrumbItem>
                 </Breadcrumb>
@@ -26,12 +26,12 @@ class CareTab extends Component {
                 
                 {/* Tabs */}
                 <AppBar position="static">
-                        <Tabs id='tabs' style={{backgroundColor: '#89a9d0'}}>
-                            <Tab id='dashboard' label="Dashboard" href='/'/>
-                            <Tab id='history' class='activ' label="History" href='/history'/>
+                        <Tabs id='tabs' style={{backgroundColor: '#e9ecef', color:'black'}}>
+                            <Tab id='dashboard' label="Dashboard" href='/dashboard'/>
+                            <Tab id='history' label="History" href='/history'/>
                             <Tab id='imaging' label="Imaging" href='/imaging'/>
                             <Tab id='labs' label="Labs" href='/labs'/>
-                            <Tab id='care' label="Care Plan" href='/care'/>
+                            <Tab id='care' class='activ' label="Care Plan" href='/care'/>
                         </Tabs>
                 </AppBar>
                 <br></br>

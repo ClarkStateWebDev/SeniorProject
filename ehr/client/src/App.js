@@ -9,6 +9,7 @@ import patientRoutes from './components/routes/patients';
 import adminRoutes from './components/routes/admin';
 import loginRoutes from './components/routes/login';
 import NavBar from './components/NavBar';
+import NavBarRedo from './components/NavbarRedo';
 
 
 // sets up routing outside of app
@@ -22,7 +23,7 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <div id="App">
+                <div id="App" style={{position: 'relative'}}>
                     <NavBar />
                     <div id="App-body">
                     </div>

@@ -9,7 +9,7 @@ class PatientOverview extends Component {
 
         return (
             <>
-            <div style={{maxWidth: '100%'}}> 
+            <div style={{maxWidth: '100%', margin: '15px'}}> 
                 <div style={{float: 'inherit', maxWidth: '75'}}>
                     
                     <table class="table table-borderless" style={{margin: '0 auto', display: 'table', backgroundColor: '#006A99'}}>

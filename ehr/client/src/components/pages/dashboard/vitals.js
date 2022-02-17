@@ -10,7 +10,7 @@ class Vitals extends Component {
 
         return (
             <>
-            <div style={{margin: '10px', overflow: 'hidden'}}>
+            <div style={{margin: '15px', overflow: 'hidden'}}>
                <table class="table table-borderless" style={{ margin: '0 auto', display: 'table', backgroundColor: '#DBE1E4', maxWidth: '100%'}}>
                     <thead>
                         <tr>

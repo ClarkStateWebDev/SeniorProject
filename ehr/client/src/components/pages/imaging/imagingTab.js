@@ -14,10 +14,10 @@ class imagingTab extends Component {
         return (
             <>
                 <Breadcrumb>
-                    <BreadcrumbItem active>
-                        Home
-                    </BreadcrumbItem>
                     <BreadcrumbItem>
+                        Patient Selection
+                    </BreadcrumbItem>
+                    <BreadcrumbItem active>
                         Imaging
                     </BreadcrumbItem>
                 </Breadcrumb>
@@ -25,8 +25,8 @@ class imagingTab extends Component {
                 <br></br><br></br>
                  {/* Tabs */}
                  <AppBar position="static">
-                        <Tabs id='tabs' style={{backgroundColor: '#89a9d0'}}>
-                            <Tab id='dashboard' label="Dashboard" href='/'/>
+                        <Tabs id='tabs' style={{backgroundColor: '#e9ecef', color:'black'}}>
+                            <Tab id='dashboard' label="Dashboard" href='/dashboard'/>
                             <Tab id='history' label="History" href='/history'/>
                             <Tab id='imaging' class='activ' label="Imaging" href='/imaging'/>
                             <Tab id='labs' label="Labs" href='/labs'/>
