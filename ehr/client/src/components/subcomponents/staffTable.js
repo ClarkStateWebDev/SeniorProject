@@ -1,14 +1,70 @@
 // import statements
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import '../../css/Table.css';
+import Axios from 'axios';
 
 class TableBlock extends Component {
-    render() {
 
-        return (
-            <>
-            {/* beginning of staff table */}
-                <div id="staffTable" class="table-wrapper-scroll-y my-custom-scrollbar" style={{float: 'left', width: '49%', padding: '10px', marginBottom: '50px'}}>
+    constructor(props) {
+        super(props);
+        this.state = {
+           userList: [],
+           isChanged: false
+        };
+        this.getAllUsers = this.getAllUsers.bind(this);
+    }
+
+    deleteUser(id) {
+        alert(id);
+        Axios.delete("http://localhost:3001/user/delete", { 
+            data:{ 
+            user_id: id
+            }
+        })
+        this.setState({isChanged:true})
+    };
+
+    getAllUsers() {
+        Axios.get("http://localhost:3001/user/getAll")
+        .then(results => {
+            console.log(results.data)
+            return results;
+        })
+        .then(results => {
+          let users = results.data.map((user) => {
+            return (
+                <tr key={user.user_id}>
+                    <td>{user.first_name} {user.last_name}</td>
+                    <td>{user.email}</td>
+                    <td><button type="button" class="btn btn-warning editStaff">Edit</button></td>
+                    <td><button type="button" data-userID={user.user_id} class="btn btn-danger deleteStaff" onClick={() => this.deleteUser(user.user_id)}>Delete</button></td>
+                </tr>
+            );
+          })
+          this.setState({userList: users});
+          this.setState({isChanged:false});   
+        })
+        .catch(function(error) {
+          console.log(error);
+
+        });
+    }
+    componentDidUpdate() {
+        // Typical usage (don't forget to compare props):
+        /* console.log("props" + JSON. stringify(this.state.isChanged)) */
+        if (this.state.isChanged === true) {
+            this.getAllUsers()
+        }
+        
+      }
+    componentDidMount() {
+        this.getAllUsers()
+    }
+    render() {
+        return ( 
+        <>       
+        {/* beginning of staff table */}
+        <div id="staffTable" class="table-wrapper-scroll-y my-custom-scrollbar" style={{float: 'left', width: '49%', padding: '10px', marginBottom: '50px'}}>
                         <table class="table table-borderless table-striped" >
                             {/* table header */}
                             <thead>
@@ -24,36 +80,18 @@ class TableBlock extends Component {
                             </thead>
                             {/* beginning of nurse rows */}
                             <tbody>
-                            <tr>
-                                <td><img src="img/nurse1.png" id='pic'/>Lacey Owens</td>
-                                <td>Michael Scott</td>
-                                <td><button type="button" class="btn btn-warning">Edit</button></td>
-                                <td><button type="button" class="btn btn-danger">Delete</button></td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/nurse5.png" id='pic'/>Eddie Hammond</td>
-                                <td>Jim Halpert</td>
-                                <td><button type="button" class="btn btn-warning">Edit</button></td>
-                                <td><button type="button" class="btn btn-danger">Delete</button></td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/nurse3.png" id='pic'/>Lisa Rodgers</td>
-                                <td>Pam Beesly</td>
-                                <td><button type="button" class="btn btn-warning">Edit</button></td>
-                                <td><button type="button" class="btn btn-danger">Delete</button></td>  
-                            </tr>
-                            <tr>
-                                <td><img src="img/nurse4.png" id='pic'/>Cory Parker</td>
-                                <td>Dwight Schrute</td>
-                                <td><button type="button" class="btn btn-warning">Edit</button></td>
-                                <td><button type="button" class="btn btn-danger">Delete</button></td>  
-                            </tr>
-                            <tr>
-                                <td><img src="img/nurse2.png" id='pic'/>Amber Mendez</td>
-                                <td>Kelly Kapoor</td>
-                                <td><button type="button" class="btn btn-warning">Edit</button></td>
-                                <td><button type="button" class="btn btn-danger">Delete</button></td>  
-                            </tr>
+                            {
+                               this.state.userList
+                            }
+                            {this.state.userList.length > 0 ? ("") :
+                                (
+                                <tr>
+                                    <td colSpan="5">
+                                    No Staff
+                                    </td>
+                                </tr>
+                                )
+                            }
                             </tbody>
                         </table>
                 </div>
