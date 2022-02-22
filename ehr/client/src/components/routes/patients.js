@@ -12,6 +12,10 @@ import WeightTab from '../pages/Weight/weightTab';
 import PainTab from '../pages/Pain/painTab';
 import InputTab from '../pages/Input/inputTab';
 import OutputTab from '../pages/output/outputTab';
+import EliminationTab from '../pages/elimination/elimination';
+import IntakeTab from '../pages/intake/intakeTab';
+import HygieneTab from '../pages/hygiene/hygieneTab';
+import MobilityTab from '../pages/mobility/mobilityTab';
 
 const patientRoutes = () => (
     <Switch>
@@ -26,6 +30,10 @@ const patientRoutes = () => (
       <Route exact path="/pain" component={PainTab}/>
       <Route exact path="/input" component={InputTab}/>
       <Route exact path="/output" component={OutputTab}/>
+      <Route exact path="/elimination" component={EliminationTab}/>
+      <Route exact path="/intake" component={IntakeTab}/>
+      <Route exact path="/hygiene" component={HygieneTab}/>
+      <Route exact path="/mobility" component={MobilityTab}/>
        
     </Switch>
 );
