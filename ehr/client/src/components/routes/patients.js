@@ -16,6 +16,8 @@ import EliminationTab from '../pages/elimination/elimination';
 import IntakeTab from '../pages/intake/intakeTab';
 import HygieneTab from '../pages/hygiene/hygieneTab';
 import MobilityTab from '../pages/mobility/mobilityTab';
+import PatientSelection from '../pages/Patient-Selection';
+
 
 const patientRoutes = () => (
     <Switch>
@@ -34,6 +36,8 @@ const patientRoutes = () => (
       <Route exact path="/intake" component={IntakeTab}/>
       <Route exact path="/hygiene" component={HygieneTab}/>
       <Route exact path="/mobility" component={MobilityTab}/>
+      <Route exact path="/patient-selection" component={PatientSelection}/>
+
        
     </Switch>
 );
