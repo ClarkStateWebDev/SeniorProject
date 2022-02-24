@@ -16,7 +16,7 @@ class SelectionTable extends Component {
                             <thead>
                                 <tr style={{background: '#0065A0', color: 'white', float: 'center', width: '100%', padding: '10px'}}>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Medical Record</th>
+                                    <th scope="col">Patient Record</th>
                                     <th scope="col">Date Of Birth</th>
 
                                 </tr>
