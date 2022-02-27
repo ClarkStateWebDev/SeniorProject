@@ -1,60 +1,83 @@
+/************************************************************************** 
+Name: server.js
+
+Created: 31 Jan 2022
+
+Purpose: handles app startup, routing and other functions of application
+
+Modified: 
+
+Modified:
+
+**************************************************************************/
+
 const express = require("express");
 const mysql = require('mysql');
 const cors = require('cors');
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
 const app = express();
-
-const sequelize = require('./app/utils/database');
-const User = require("./app/models/User.model");
-
-/* //Configures the Access-Control-Allow-Origin CORS header.
-var corsOptions = {
-  origin: "http://localhost:8081"
-}; */
-
-/* app.use(cors(corsOptions)); */
-
+const db = require("./app/models");
+const errorController = require('./app/controllers/error');
 app.use(cors());
+
 // parse requests of content-type - application/json
-app.use(express.json()); /* bodyParser.json() is deprecated */
+app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true })); /* bodyParser.urlencoded() is deprecated */
+app.use(express.urlencoded({ extended: true })); 
+
+
+app.get("/login", (req, res) => {
+  //res.json({ message: "Welcome to Clark State EHR" });
+  console.log("login page");
+});
+
+
 
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Clark State EHR" });
+  //console.log("login: " +  res.locals.isAuthenticated);
 });
+
+
+app.get("/404", (req, res) => {
+  console.log("Error 404")
+});
+
+
 // set port, listen for requests
 const PORT = process.env.PORT || 3001;
-//require("./app/routes/tutorial.routes.js")(app);
+
+/* routes to communicate between front/back end */
 const userRoutes = require("./app/routes/users.routes");
+const patientRoutes = require("./app/routes/patients.routes");
+const { sequelize } = require("./app/models");
+require('./app/routes/forgotPassword')(app);
+require('./app/routes/resetPassword')(app);
+require('./app/routes/updatePasswordViaEmail')(app);
 
-const databaseTest = mysql.createConnection({
-  user: 'root',
-  host: 'localhost',
-  password: 'password',
-  database: 'clark_state_ehr'
-});
+/* use the created routes */
+app.use("/user", userRoutes);
+app.use("/patient", patientRoutes);
+app.use(errorController.get404);
+/* app.use((error, req, res, next) => {
+  res.status(500).render('500', {
+    pageTitle: 'Error!',
+    path: '/500',
+    isAuthenticated: req.session.isLoggedIn
+  });
+}); */
 
-app.use(userRoutes);
 
+/* Call sequelize within the db and sync before listening for requests.
+Sequelize will automatically perform an SQL query to the database. 
+Note that this changes only the table in the database, not the model in the JavaScript side. 
+Then log any errors.
+*/
 
-app.delete('/user/delete', (req, res) => {
-  const user_id = req.body.user_id;
-  databaseTest.query(
-      'DELETE FROM users WHERE user_id = ?', 
-      [user_id],
-      (err, result) => {
-          if(err){
-              console.log(err);
-          } else {
-              console.log("User Deleted");
-          }
-      }
-  ); // insert array and '?' for security purposes
-});
-
-sequelize.sync().then(result =>{
+db.sequelize.sync().then(result =>{
     console.log(result);
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}.`);
