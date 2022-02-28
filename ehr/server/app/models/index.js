@@ -43,7 +43,18 @@ db.user.hasOne(db.patient, {
 });
 
 // Uncomment this to create an admin user when app is first deployed. 
-/* db.user.create({
+
+/*   db.role.create({
+    id: 1,
+    name:"user"
+  })
+
+  db.role.create({
+    id: 2,
+    name:"admin"
+  })
+
+  db.user.create({
   email:"admin@admin.com", 
   first_name:"Admin", 
   last_name:"Admin", 
@@ -52,7 +63,7 @@ db.user.hasOne(db.patient, {
   ).then(user => {
     user.setRoles(2);
   }) */
-
+  
 
 db.ROLES = ["user", "admin"];
 
