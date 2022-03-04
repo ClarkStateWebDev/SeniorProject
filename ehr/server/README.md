@@ -57,7 +57,4 @@ The file for connection is db.js, we put it in app/models folder that will conta
 node server.js
 ```
 
-### 3. Open http://localhost:8080/ in your browser
-You will see the message "Welcome to Clark State EHR"
-
 ---
