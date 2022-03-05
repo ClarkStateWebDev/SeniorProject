@@ -53,7 +53,7 @@ db.sequelize.sync().then(result =>{
 
 **TO:**
 ```javascript
-db.sequelize.sync({force:true).then(result =>{
+db.sequelize.sync({force:true}).then(result =>{
 ```
 This will create the tables needed to run the current app. **After you run the app the first time and your tables are created change the code back or your tables will be dropped and your application will not work.**
 You will now uncomment the following code in ***server/app/models/index.js*** 
