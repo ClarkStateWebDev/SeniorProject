@@ -1,8 +1,21 @@
-const Sequelize = require('sequelize');
+/************************************************************************** 
+Name: User.model.js
 
+Created: 19 Feb 2022
+
+Author: Blaylock 
+
+Purpose: Models exist between the MySQL database storage and the logic of the application. 
+         This is the User model.
+
+Modified:
+
+**************************************************************************/
+const Sequelize = require('sequelize');
 const sequelize = require('../utils/database');
 
-const User = sequelize.define('user', {
+module.exports = (sequelize, Sequelize) => {
+    const User = sequelize.define('user', {
         user_id:{
             type: Sequelize.INTEGER,
             allowNull: false,
@@ -21,30 +34,26 @@ const User = sequelize.define('user', {
             type: Sequelize.STRING,
             allowNull: false
         },
-        privileges:{
-            type: Sequelize.STRING,
-            allowNull: false,
-            defaultValue: "Student"
-        },
         password:{
             type: Sequelize.STRING,
             allowNull: false
         },
-        created_at:{
-            type: Sequelize.DATE,
-            allowNull: false,
-            defaultValue: Sequelize.fn('now')
-        },
-        updated_at:{
-            type: Sequelize.DATE,
-            allowNull: false,
-            defaultValue: Sequelize.fn('now')
+        isAdmin:{
+            type: Sequelize.BOOLEAN,
+            defaultValue: 0
         },
         by_user:{
             type: Sequelize.STRING,
             allowNull: false,
-            defaultValue: "Student"
-        }
+            defaultValue: "Admin"
+        },
+        resetPasswordToken: {
+            type:Sequelize.STRING
+        },
+        resetPasswordExpires: {
+            type:Sequelize.DATE
+        },
     });
+    return User;
+};
 
-    module.exports = User;

@@ -1,7 +1,12 @@
 const Sequelize = require('sequelize');
+const config = require("../config/db.config");
 
-const sequelize = new Sequelize('clark_state_ehr', 'root', 'password', {
-    dialect: 'mysql'
+const sequelize = new Sequelize(
+        config.DB,
+        config.USER,
+        config.PASSWORD,
+    {
+        dialect: config.dialect
 });
 
 module.exports = sequelize;

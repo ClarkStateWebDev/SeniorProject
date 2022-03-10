@@ -42,6 +42,7 @@ import AdminUserEdit from '../src/pages/admin/admin-user-edit'
 import Med from '../src/pages/admin/med-data';
 import Override from '../src/pages/admin/override-data'
 
+<<<<<<< HEAD
 import EyeTab from './pages/eye/eyeTab';
 import EntTab from './pages/earNoseThroat/entTab';
 import HeadTab from './pages/head/headTab';
@@ -55,6 +56,8 @@ import AlterTab from './pages/alterations/alterTab';
 import WoundLocTab from './pages/woundLoc/woundLocTab';
 import WoundCharTab from './pages/woundChar/woundCharTab';
 import DressingTab from './pages/dressing/dressingTab';
+=======
+>>>>>>> c2169ba77d2dece1f9eeec06a233b2ede44b7181
 
 function App() {   
           
@@ -89,6 +92,7 @@ function App() {
                           <Route exact path="intake" element={<IntakeTab />}/>
                           <Route exact path="hygiene" element={<HygieneTab />}/>
                           <Route exact path="mobility" element={<MobilityTab />}/>
+<<<<<<< HEAD
                           <Route exact path="eye" element={<EyeTab />}/>
                           <Route exact path="ears" element={<EntTab />}/>
                           <Route exact path="head" element={<HeadTab />}/>
@@ -100,6 +104,8 @@ function App() {
                           <Route exact path="wound-location" element={<WoundLocTab />}/>
                           <Route exact path="wound-characteristics" element={<WoundCharTab />}/>
                           <Route exact path="dressing-change" element={<DressingTab />}/>
+=======
+>>>>>>> c2169ba77d2dece1f9eeec06a233b2ede44b7181
                           <Route exact path="patient-selection" element={<SelectionTable />} />
                         </>
                       }
