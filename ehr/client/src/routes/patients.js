@@ -17,6 +17,19 @@ import IntakeTab from '../pages/intake/intakeTab';
 import HygieneTab from '../pages/hygiene/hygieneTab';
 import MobilityTab from '../pages/mobility/mobilityTab';
 import PatientSelection from '../pages/Patient-Selection';
+<<<<<<< HEAD:ehr/client/src/routes/patients.js
+import EyeTab from '../pages/eye/eyeTab';
+import EntTab from '../pages/earNoseThroat/entTab';
+import HeadTab from '../pages/head/headTab';
+import AbdomenTab from '../pages/abdomen/abdomenTab';
+import GeniTab from '../pages/genitourinary/geniTab';
+import InteTab from '../pages/integumentary/inteTab';
+import AlterTab from '../pages/alterations/alterTab';
+import WoundLocTab from '../pages/woundLoc/woundLocTab';
+import WoundCharTab from '../pages/woundChar/woundCharTab';
+import DressingTab from '../pages/dressing/dressingTab';
+=======
+>>>>>>> c2169ba77d2dece1f9eeec06a233b2ede44b7181:ehr/client/src/components/routes/patients.js
 
 const patientRoutes = () => (
     <Switch>
@@ -35,6 +48,19 @@ const patientRoutes = () => (
       <Route exact path="/intake" component={IntakeTab}/>
       <Route exact path="/hygiene" component={HygieneTab}/>
       <Route exact path="/mobility" component={MobilityTab}/>
+<<<<<<< HEAD:ehr/client/src/routes/patients.js
+      <Route exact path="/eye" component={EyeTab}/>
+      <Route exact path="/ears" component={EntTab}/>
+      <Route exact path="/head" component={HeadTab}/>
+      <Route exact path="/abdomen" component={AbdomenTab}/>
+      <Route exact path="/genitourinary" component={GeniTab}/>
+      <Route exact path="/integumentary" component={InteTab}/>
+      <Route exact path="/alterations" component={AlterTab}/>
+      <Route exact path="/wound-location" component={WoundLocTab}/>
+      <Route exact path="/wound-characteristics" component={WoundCharTab}/>
+      <Route exact path="/dressing-change" component={DressingTab}/>
+=======
+>>>>>>> c2169ba77d2dece1f9eeec06a233b2ede44b7181:ehr/client/src/components/routes/patients.js
       <Route exact path="/patient-selection" component={PatientSelection}/>
     </Switch>
 );
