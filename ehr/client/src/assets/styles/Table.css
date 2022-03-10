@@ -1,0 +1,19 @@
+.my-custom-scrollbar {
+  position: relative;
+  max-height: 800px;
+  overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+  display: block;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+  background-color: #C6DDE8;
+}
+
+#pic {
+  max-width: 40px;
+  height: auto;
+}
