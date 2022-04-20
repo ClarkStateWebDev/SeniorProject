@@ -45,7 +45,7 @@ const Login = () => {
                 setUserID(userID);
                 console.log("ROLES: " + roles);
                if(response.data.roles !== 2){
-                    navigate('/dashboard');
+                    navigate('/patient-selection');
                 }else{
                     navigate('/admin');
                 } 
