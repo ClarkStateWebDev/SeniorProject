@@ -10,8 +10,15 @@ Purpose: Find the user with the correct reset token and change their password
 Modified:
 
 **************************************************************************/
+
+/* require() (import) the user controller. We can then call the controller 
+   functions to get the requested data from the user models using the assigned variable name 'users'  */
 const User = require('../models/User.model.js');
+
+/* require() (import) sequelize */
 const Sequelize = require('sequelize');
+
+
 const Op = Sequelize.Op;
 
 module.exports = (app) => {

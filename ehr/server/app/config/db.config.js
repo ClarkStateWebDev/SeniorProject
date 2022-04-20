@@ -12,8 +12,8 @@ Modified:
 **************************************************************************/
 module.exports = {
     HOST: "localhost",
-    USER: "",
-    PASSWORD: "",
-    DB: "",
+    USER: "root",
+    PASSWORD: "password",
+    DB: "clark_state_ehr",
     dialect: "mysql"
   };
