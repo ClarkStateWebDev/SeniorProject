@@ -42,6 +42,19 @@ import AdminUserEdit from '../src/pages/admin/admin-user-edit'
 import Med from '../src/pages/admin/med-data';
 import Override from '../src/pages/admin/override-data'
 
+// Jeris code branch - added 3/22/22 by AH
+import EyeTab from './pages/eye/eyeTab';
+import EntTab from './pages/earNoseThroat/entTab';
+import HeadTab from './pages/head/headTab';
+import GastroTab from './pages/gastrointestinal/gastroTab';
+import AbdomenTab from './pages/abdomen/abdomenTab';
+import GeniTab from './pages/genitourinary/geniTab';
+import InteTab from './pages/integumentary/inteTab';
+import AlterTab from './pages/alterations/alterTab';
+import WoundLocTab from './pages/woundLoc/woundLocTab';
+import WoundCharTab from './pages/woundChar/woundCharTab';
+import DressingTab from './pages/dressing/dressingTab';
+
 
 function App() {   
           
@@ -64,7 +77,7 @@ function App() {
                           <Route exact path="dashboard" element={<Home />} />
                           <Route exact path="daily-care" element={<DailyCare/>}/>
                           <Route exact path="history" element={<HistoryTab/>}/>
-                          <Route exact path="imaging" element={<imagingTab />}/>
+                          <Route exact path="imaging" element={<imagingTab />}/> //Does "imaging" need a capital I?
                           <Route exact path="labs" element={<LabTab/>}/>
                           <Route exact path="care" element={<CareTab/>}/>
                           <Route exact path="vitals" element={<VitalTab />}/>
@@ -76,6 +89,19 @@ function App() {
                           <Route exact path="intake" element={<IntakeTab />}/>
                           <Route exact path="hygiene" element={<HygieneTab />}/>
                           <Route exact path="mobility" element={<MobilityTab />}/>
+						  // Jeris code branch - added 3/22/22 by AH
+						  <Route exact path="eye" element={<EyeTab />}/>
+                          <Route exact path="ears" element={<EntTab />}/>
+                          <Route exact path="head" element={<HeadTab />}/>
+                          <Route exact path="gastro" element={<GastroTab />}/>
+                          <Route exact path="abdomen" element={<AbdomenTab />}/>
+                          <Route exact path="genitourinary" element={<GeniTab />}/>
+                          <Route exact path="integumentary" element={<InteTab />}/>
+                          <Route exact path="alterations" element={<AlterTab />}/>
+                          <Route exact path="wound-location" element={<WoundLocTab />}/>
+                          <Route exact path="wound-characteristics" element={<WoundCharTab />}/>
+                          <Route exact path="dressing-change" element={<DressingTab />}/>
+						  //End of Jeris branch additions
                           <Route exact path="patient-selection" element={<SelectionTable />} />
                         </>
                       }
