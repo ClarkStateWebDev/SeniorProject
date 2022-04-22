@@ -42,6 +42,9 @@ import AdminUserEdit from '../src/pages/admin/admin-user-edit'
 import Med from '../src/pages/admin/med-data';
 import Override from '../src/pages/admin/override-data'
 
+import { DndProvider } from "react-dnd"; //Hannah DnD import statement add by Hannah Stickford
+import{ HTML5Backend } from "react-dnd-html5-backend"; //Hannah DnD import statement add by Hannah Stickford
+
 // Jeris code branch - added 3/22/22 by AH
 import EyeTab from './pages/eye/eyeTab';
 import EntTab from './pages/earNoseThroat/entTab';
@@ -54,7 +57,9 @@ import AlterTab from './pages/alterations/alterTab';
 import WoundLocTab from './pages/woundLoc/woundLocTab';
 import WoundCharTab from './pages/woundChar/woundCharTab';
 import DressingTab from './pages/dressing/dressingTab';
-
+import DragDrop from './components/DragDrop'; //Hannah Import Drag Drop
+import PerPulse from './pages/PerPulse/PerPulse'; //Hannah Import Drag Drop
+import PerPulseTab from './pages/PerPulse/PerPulseTab'; //Hannah Import Drag Drop
 
 function App() {   
           
@@ -66,7 +71,12 @@ function App() {
         console.log("Admin: " + isAdmin);
         console.log("Auth: " + isAuth);
         return (
+          //Hannah drag and drop
+          <DndProvider backend={HTML5Backend}> 
+            
             <div className="App">
+
+                {/*<DragDrop />*/} /* Hannah change */
                 <Routes>
                     <Route path="/" element={<Layout />}>
                       
@@ -126,6 +136,7 @@ function App() {
 
               
             </div>
+            </DndProvider> //Hannah drag and drop
         );
 
         
