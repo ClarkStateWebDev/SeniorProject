@@ -11,7 +11,12 @@ Modified:
 
 **************************************************************************/
 import passport from 'passport';
-const bcrypt = require('bcrypt');
+
+/*  require() (import) bcryptjs */
+const bcrypt = require('bcryptjs');
+
+/* require() (import) the user controller. We can then call the controller 
+   functions to get the requested data from the user models using the assigned variable name 'users'  */
 import User from '../sequelize';
 
 const BCRYPT_SALT_ROUNDS = 12;

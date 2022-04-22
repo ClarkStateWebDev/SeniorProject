@@ -51,6 +51,7 @@ export const UserProvider = ({ children }) => {
       if(isAuth){
           setUser({...user, [user.name]: user.value });
           setIsAuth("true");
+          console.log("Roles: " + user.roles)
           setRoles(user.roles);
       };
   }; 

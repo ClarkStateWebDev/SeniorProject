@@ -10,12 +10,19 @@ Purpose:
 Modified:
 
 **************************************************************************/
-const bcrypt = require('bcrypt');
+
+/*  require() (import) bcryptjs */
+const bcrypt = require('bcryptjs');
+/* require() (import) User.model.js */
 const User = require('../models/User.model.js');
+/* require() (import) sequelize */
 const Sequelize = require('sequelize');
+/* Sequelize exposes symbol operators that can be used for to create more complex comparisons we will be using operators in out queries on this page. */
 const Op = Sequelize.Op;
 
+/* This is the cost factor. The cost factor controls how much time is needed to calculate a single BCrypt hash.  */
 const BCRYPT_SALT_ROUNDS = 12;
+
 module.exports = app => {
   app.put('/updatePasswordViaEmail', (req, res) => {
     User.findOne({

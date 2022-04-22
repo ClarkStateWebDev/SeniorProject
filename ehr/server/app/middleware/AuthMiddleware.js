@@ -5,17 +5,20 @@ Created: 19 Feb 2022
 
 Author: Blaylock 
 
-Purpose: THIS MAY NOT BE NEEDED!
+Purpose: THIS MAY NOT BE NEEDED! Well I was wrong.
 
 Modified:
 
 **************************************************************************/
 
 const { verify } = require("jsonwebtoken");
-//const User = require('../models/User.model.js');
+
 const authConfig = require("../config/auth.config");
+
 const db = require("../models")
+
 const User = db.user;
+
 const validateToken = (req, res, next) => {
   const accessToken = req.header("x-access-token");
 
@@ -27,7 +30,6 @@ const validateToken = (req, res, next) => {
     console.log(validToken);
     if (validToken) {
       const userID = validToken.id;
-      //console.log("USerID: " + userID);
       return next();
     }
   } catch (err) {
@@ -59,6 +61,4 @@ const authJwt = {
   isAdmin: isAdmin,
 };
 
-
-/* module.exports = validateToken; */
 module.exports = authJwt;

@@ -10,7 +10,7 @@ Modified: 4-7-2022
 **************************************************************************/
 import React, { useContext, useState } from 'react';
 //import { useIntl } from 'react-intl';
-import { Link, NavLink, Navigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter, SidebarContent } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
 import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart, FaBookMedical, FaCapsules, FaClipboardCheck, FaIdBadge } from 'react-icons/fa';
@@ -38,12 +38,16 @@ const NavBarRedo = ({ image, collapsed, rtl, toggled }) => {
       menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
       };
 
+      const navigate = useNavigate();
+
       const logout = () =>{
+       
         if (window.confirm('Are you sure you wish to logout?')){
             sessionStorage.removeItem("accessToken");
             sessionStorage.removeItem("user");
             setRedirect("true");
-            <Navigate  to="/loggedOut" />
+            setIsAuth("false");
+            navigate('/');
         }else{
           return null
         }
