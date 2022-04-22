@@ -11,7 +11,9 @@ Modified:
 
 **************************************************************************/
 module.exports = {
-    USER: "clarkstate.ehr@gmail.com",
-    PASSWORD: "$379RY{8X%&pjdu3",
+
+    USER: "ADD USER HERE",
+    PASSWORD: "ADD PASSWORD HERE",
     SERVICE: "gmail"
   };
+

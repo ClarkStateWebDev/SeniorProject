@@ -1,22 +1,43 @@
+/************************************************************************** 
+Name: NavBarRedo.js
 
+Author: Jeris Payne 
+
+Purpose: Add a sidebar for navigation including links only for admins, and a logout function and a close function
+
+Modified: 4-7-2022
+
+**************************************************************************/
 import React, { useContext, useState } from 'react';
 //import { useIntl } from 'react-intl';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter, SidebarContent } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
-import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart, FaBookMedical, FaCapsules, FaClipboardCheck } from 'react-icons/fa';
+import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart, FaBookMedical, FaCapsules, FaClipboardCheck, FaIdBadge } from 'react-icons/fa';
 import {FiLogOut} from 'react-icons/fi'
 //import sidebarBg from './assets/bg2.jpg';
 import logo from '../assets/images/FinalLogo.png';
+import logo_icon from '../assets/images/FinalLogo_icon.png';
+
 import UserContext from '../context/UserContext';
 
 
-const NavBarRedo = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
+const NavBarRedo = ({ image, collapsed, rtl, toggled }) => {
 
       const { setIsAuth } = useContext(UserContext);
       const { setUser } = useContext(UserContext);
-      const { roles, setRoles } = useContext(UserContext);
-      const [redirect , setRedirect]= useState(false); 
+      const { roles, setRoles } = useContext(UserContext); // roles = 2
+      console.log("admin: " + roles);
+      const [redirect , setRedirect]= useState(false);      
+
+      //menuCollapse state using useState hook
+      const [menuCollapse, setMenuCollapse] = useState(false)
+      //custom function that will change menucollapse state from false to true and true to false
+      const menuIconClick = () => {
+      //condition checking to change state from true to false and vice versa
+      menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
+      };
+
       const navigate = useNavigate();
 
       const logout = () =>{
@@ -34,16 +55,26 @@ const NavBarRedo = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => 
       };
 
       return (
-        
+        <>
+        {/* if menu is collapsed*/}
+        {menuCollapse ? (
+          <div style={{marginLeft: '80px'}} />
+        ) : (
+          <div style={{marginLeft: '270px'}} />
+          )
+        }
+
+
         <ProSidebar
           rtl={rtl}
-          collapsed={collapsed}
+          collapsed={menuCollapse}
           toggled={toggled}
           breakPoint="md"
-          onToggle={handleToggleSidebar}
-          style={{height: '110vh',color: 'white', background: '#A5A5A5', aover: 'black'}}
+          style={{height: '100%',color: 'white', background: '#A5A5A5', aover: 'black', position: 'fixed', left: '0'}}
         >
-          <SidebarHeader>
+          <SidebarHeader
+              style={{textAlign: 'center'}}
+              >
             <div
               style={{
                 padding: '24px',
@@ -56,12 +87,30 @@ const NavBarRedo = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => 
                 whiteSpace: 'nowrap',
               }}
             >
-              <img src={logo} height={100} width={150} style={{marginLeft: '30px'}}/>
+            {/* if menu is collapsed change to smaller image*/}
+            {menuCollapse ? (
+              <img src={logo_icon} height={30} width={30}/>
+              ) : (
+                <img src={logo} height={100} width={150}/>
+                )
+            }
             </div>
           </SidebarHeader>
-    
+
           <SidebarContent>
             <Menu iconShape="circle">
+              {/* If User is Admin then show admin links */}
+              {roles == 2 &&
+                <SubMenu
+                    suffix={<span className="badge yellow"></span>}
+                    title='Admin'
+                    icon={<FaIdBadge />}
+                >
+                  <MenuItem><NavLink to='/admin'></NavLink>Admin Dashboard</MenuItem>
+                  <MenuItem><NavLink to='/med-data'></NavLink>Medication Data</MenuItem>
+                  <MenuItem><NavLink to='/override-data'></NavLink>Override Data</MenuItem>
+                </SubMenu>
+              }
               <MenuItem
                 icon={<FaRegLaughWink />}
                 title='Patient Selection'
@@ -185,7 +234,16 @@ const NavBarRedo = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => 
               <MenuItem icon={<FiLogOut />} ><a onClick={logout}>Logout</a></MenuItem>
             </Menu>
           </SidebarContent>
-        </ProSidebar> 
+          <div className="closemenu" onClick={menuIconClick}>
+          {/* changing menu collapse icon on click */}
+          {menuCollapse ? (
+          <p style={{color: 'white', background: '#198754', padding: '1em', textAlign: 'center'}}>Open</p>
+          ) : (
+            <p style={{color: 'white', background: '#dc3545', padding: '1em',textAlign: 'center'}}>Close</p>
+          )}
+          </div>
+        </ProSidebar>
+        </>
       );
     };
 

@@ -12,5 +12,5 @@ Modified:
 
 **************************************************************************/
 module.exports = {
-    secret: "importantsecret"
+    secret: "ADD SECRET HERE"
   };
