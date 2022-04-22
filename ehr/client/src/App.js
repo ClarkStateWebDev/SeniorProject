@@ -41,10 +41,8 @@ import AdminPatientEdit from '../src/pages/admin/admin-patient-edit'
 import AdminUserEdit from '../src/pages/admin/admin-user-edit'
 import Med from '../src/pages/admin/med-data';
 import Override from '../src/pages/admin/override-data'
-
 import { DndProvider } from "react-dnd"; //Hannah DnD import statement add by Hannah Stickford
 import{ HTML5Backend } from "react-dnd-html5-backend"; //Hannah DnD import statement add by Hannah Stickford
-
 // Jeris code branch - added 3/22/22 by AH
 import EyeTab from './pages/eye/eyeTab';
 import EntTab from './pages/earNoseThroat/entTab';
@@ -57,9 +55,36 @@ import AlterTab from './pages/alterations/alterTab';
 import WoundLocTab from './pages/woundLoc/woundLocTab';
 import WoundCharTab from './pages/woundChar/woundCharTab';
 import DressingTab from './pages/dressing/dressingTab';
+import MuscleTab from './pages/muscle/muscleTab';
+import PsychosocialTab from './pages/psychosocial/psycSocTab';
+import BreathingTab from './pages/breathing/breathingTab';
+import LungTab from './pages/lung/lungTab';
+import OxygenTab from './pages/oxygen/oxygenTab';
+import AirTab from './pages/airways/airTab';
+import RespNotesTab from './pages/respNotes/respNotesTab';
+import SafetyTab from './pages/safety/safetyTab';
+import SafetyNotesTab from './pages/safety/safeNotesTab';
+import InfectTab from './pages/infection/infectTab';
+import InfectNotesTab from './pages/infection/infectNotesTab';
+import VascularTab from './pages/vascular/vascularTab';
+import VascularNotesTab from './pages/vascular/vascularNotesTab';
+import DrainsTab from './pages/drainsTubes/drainsTab';
+import DrainsNotesTab from './pages/drainsTubes/drainsNotesTab';
+import OrderTab from './pages/orderEntry/orderTab';
+import SchedMedsTab from './pages/meds/schedMedsTab';
+import PrnMedTab from './pages/meds/prnMedTab';
+import ContMedTab from './pages/meds/contMedTab';
+import RespMedTab from './pages/meds/respMedTab';
+import DiscMedTab from './pages/meds/discMedTab';
+import MentalTab from './pages/neuro/mentalTab';
+import SeizureTab from './pages/neuro/seizureTab';
+import CranialTab from './pages/neuro/cranialTab';
+import NeuroNotesTab from './pages/neuro/neuroNotesTab';
+
 import DragDrop from './components/DragDrop'; //Hannah Import Drag Drop
 import PerPulse from './pages/PerPulse/PerPulse'; //Hannah Import Drag Drop
 import PerPulseTab from './pages/PerPulse/PerPulseTab'; //Hannah Import Drag Drop
+
 
 function App() {   
           
@@ -99,8 +124,11 @@ function App() {
                           <Route exact path="intake" element={<IntakeTab />}/>
                           <Route exact path="hygiene" element={<HygieneTab />}/>
                           <Route exact path="mobility" element={<MobilityTab />}/>
+                          <Route exact path="eye" element={<EyeTab />}/>
+
 						  // Jeris code branch - added 3/22/22 by AH
 						  <Route exact path="eye" element={<EyeTab />}/>
+
                           <Route exact path="ears" element={<EntTab />}/>
                           <Route exact path="head" element={<HeadTab />}/>
                           <Route exact path="gastro" element={<GastroTab />}/>
@@ -111,7 +139,33 @@ function App() {
                           <Route exact path="wound-location" element={<WoundLocTab />}/>
                           <Route exact path="wound-characteristics" element={<WoundCharTab />}/>
                           <Route exact path="dressing-change" element={<DressingTab />}/>
+                          <Route exact path="musculoskeletal" element={<MuscleTab />}/>
+                          <Route exact path="psychosocial" element={<PsychosocialTab />}/>
+                          <Route exact path="breathing" element={<BreathingTab />}/>
+                          <Route exact path="lungs" element={<LungTab />}/>
+                          <Route exact path="oxygen" element={<OxygenTab />}/>
+                          <Route exact path="airways" element={<AirTab />}/>
+                          <Route exact path="respiratory-notes" element={<RespNotesTab />}/>
+                          <Route exact path="safety" element={<SafetyTab />}/>
+                          <Route exact path="safety-notes" element={<SafetyNotesTab />}/>
+                          <Route exact path="infection-control" element={<InfectTab />}/>
+                          <Route exact path="infection-notes" element={<InfectNotesTab />}/>
+                          <Route exact path="vascular" element={<VascularTab />}/>
+                          <Route exact path="vascular-notes" element={<VascularNotesTab />}/>
+                          <Route exact path="drains" element={<DrainsTab />}/>
+                          <Route exact path="drains-notes" element={<DrainsNotesTab />}/>
+                          <Route exact path="order-entry" element={<OrderTab />}/>
+                          <Route exact path="scheduled-medications" element={<SchedMedsTab />}/>
+                          <Route exact path="prn-medications" element={<PrnMedTab />}/>
+                          <Route exact path="continuous-medications" element={<ContMedTab />}/>
+                          <Route exact path="respiratory-medications" element={<RespMedTab />}/>
+                          <Route exact path="discontinued-medications" element={<DiscMedTab />}/>
+                          <Route exact path="mental-status" element={<MentalTab />}/>
+                          <Route exact path="seizure-activity" element={<SeizureTab />}/>
+                          <Route exact path="cranial-nerve" element={<CranialTab />}/>
+                          <Route exact path="neurological-notes" element={<NeuroNotesTab />}/>
 						  //End of Jeris branch additions
+
                           <Route exact path="patient-selection" element={<SelectionTable />} />
                         </>
                       }
@@ -143,4 +197,3 @@ function App() {
     }
 
 export default App;
-
