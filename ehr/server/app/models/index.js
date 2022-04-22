@@ -44,7 +44,9 @@ db.user.hasOne(db.patient, {
 
 // Uncomment this to create an admin user when app is first deployed. 
 
-/*   db.role.create({
+/*   
+
+  db.role.create({
     id: 1,
     name:"user"
   })
@@ -62,8 +64,20 @@ db.user.hasOne(db.patient, {
   password:"$2b$10$fX4p.34jAVzw/Nq622G/BOewxZG3Gl/Y34ytc88dxaFHDrvoqwS56"}
   ).then(user => {
     user.setRoles(2);
-  }) */
+  }) 
   
+  db.user.create({
+  email:"user@user.com", 
+  first_name:"User", 
+  last_name:"User", 
+  isAdmin:0, 
+  password:"$2b$10$fX4p.34jAVzw/Nq622G/BOewxZG3Gl/Y34ytc88dxaFHDrvoqwS56"}
+  ).then(user => {
+    user.setRoles(1);
+  }) 
+
+*/
+
 
 db.ROLES = ["user", "admin"];
 

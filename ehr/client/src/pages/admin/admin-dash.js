@@ -52,7 +52,7 @@ class Admin extends Component {
                 <br></br><br></br><br></br><br></br>
 
                 {/* Staff Searchbar */}
-                <Search/>
+               {/*  <Search/> */}
                 {/* Patient Searchbar */}
                 <SearchRight/>
                 
