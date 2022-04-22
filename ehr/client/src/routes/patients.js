@@ -17,6 +17,7 @@ import IntakeTab from '../pages/intake/intakeTab';
 import HygieneTab from '../pages/hygiene/hygieneTab';
 import MobilityTab from '../pages/mobility/mobilityTab';
 import PatientSelection from '../pages/Patient-Selection';
+
 import EyeTab from '../pages/eye/eyeTab';
 import EntTab from '../pages/earNoseThroat/entTab';
 import HeadTab from '../pages/head/headTab';
@@ -53,6 +54,7 @@ import SeizureTab from '../pages/neuro/seizureTab';
 import CranialTab from '../pages/neuro/cranialTab';
 import NeuroNotesTab from '../pages/neuro/neuroNotesTab';
 
+
 const patientRoutes = () => (
     <Switch>
       <Route exact path="/dashboard" component={Home}/>
@@ -70,6 +72,7 @@ const patientRoutes = () => (
       <Route exact path="/intake" component={IntakeTab}/>
       <Route exact path="/hygiene" component={HygieneTab}/>
       <Route exact path="/mobility" component={MobilityTab}/>
+
       <Route exact path="/eye" component={EyeTab}/>
       <Route exact path="/ears" component={EntTab}/>
       <Route exact path="/head" component={HeadTab}/>
@@ -105,6 +108,7 @@ const patientRoutes = () => (
       <Route exact path="/seizure-activity" component={SeizureTab}/>
       <Route exact path="/cranial-nerve" component={CranialTab}/>
       <Route exact path="/neurological-notes" component={NeuroNotesTab}/>
+
       <Route exact path="/patient-selection" component={PatientSelection}/>
     </Switch>
 );

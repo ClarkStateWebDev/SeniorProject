@@ -41,21 +41,20 @@ import AdminPatientEdit from '../src/pages/admin/admin-patient-edit'
 import AdminUserEdit from '../src/pages/admin/admin-user-edit'
 import Med from '../src/pages/admin/med-data';
 import Override from '../src/pages/admin/override-data'
-
+import { DndProvider } from "react-dnd"; //Hannah DnD import statement add by Hannah Stickford
+import{ HTML5Backend } from "react-dnd-html5-backend"; //Hannah DnD import statement add by Hannah Stickford
+// Jeris code branch - added 3/22/22 by AH
 import EyeTab from './pages/eye/eyeTab';
 import EntTab from './pages/earNoseThroat/entTab';
 import HeadTab from './pages/head/headTab';
 import GastroTab from './pages/gastrointestinal/gastroTab';
 import AbdomenTab from './pages/abdomen/abdomenTab';
-
 import GeniTab from './pages/genitourinary/geniTab';
-
 import InteTab from './pages/integumentary/inteTab';
 import AlterTab from './pages/alterations/alterTab';
 import WoundLocTab from './pages/woundLoc/woundLocTab';
 import WoundCharTab from './pages/woundChar/woundCharTab';
 import DressingTab from './pages/dressing/dressingTab';
-
 import MuscleTab from './pages/muscle/muscleTab';
 import PsychosocialTab from './pages/psychosocial/psycSocTab';
 import BreathingTab from './pages/breathing/breathingTab';
@@ -72,17 +71,19 @@ import VascularNotesTab from './pages/vascular/vascularNotesTab';
 import DrainsTab from './pages/drainsTubes/drainsTab';
 import DrainsNotesTab from './pages/drainsTubes/drainsNotesTab';
 import OrderTab from './pages/orderEntry/orderTab';
-
 import SchedMedsTab from './pages/meds/schedMedsTab';
 import PrnMedTab from './pages/meds/prnMedTab';
 import ContMedTab from './pages/meds/contMedTab';
 import RespMedTab from './pages/meds/respMedTab';
 import DiscMedTab from './pages/meds/discMedTab';
-
 import MentalTab from './pages/neuro/mentalTab';
 import SeizureTab from './pages/neuro/seizureTab';
 import CranialTab from './pages/neuro/cranialTab';
 import NeuroNotesTab from './pages/neuro/neuroNotesTab';
+
+import DragDrop from './components/DragDrop'; //Hannah Import Drag Drop
+import PerPulse from './pages/PerPulse/PerPulse'; //Hannah Import Drag Drop
+import PerPulseTab from './pages/PerPulse/PerPulseTab'; //Hannah Import Drag Drop
 
 
 function App() {   
@@ -95,7 +96,12 @@ function App() {
         console.log("Admin: " + isAdmin);
         console.log("Auth: " + isAuth);
         return (
+          //Hannah drag and drop
+          <DndProvider backend={HTML5Backend}> 
+            
             <div className="App">
+
+                {/*<DragDrop />*/} /* Hannah change */
                 <Routes>
                     <Route path="/" element={<Layout />}>
                       
@@ -106,7 +112,7 @@ function App() {
                           <Route exact path="dashboard" element={<Home />} />
                           <Route exact path="daily-care" element={<DailyCare/>}/>
                           <Route exact path="history" element={<HistoryTab/>}/>
-                          <Route exact path="imaging" element={<imagingTab />}/>
+                          <Route exact path="imaging" element={<imagingTab />}/> //Does "imaging" need a capital I?
                           <Route exact path="labs" element={<LabTab/>}/>
                           <Route exact path="care" element={<CareTab/>}/>
                           <Route exact path="vitals" element={<VitalTab />}/>
@@ -119,6 +125,10 @@ function App() {
                           <Route exact path="hygiene" element={<HygieneTab />}/>
                           <Route exact path="mobility" element={<MobilityTab />}/>
                           <Route exact path="eye" element={<EyeTab />}/>
+
+						  // Jeris code branch - added 3/22/22 by AH
+						  <Route exact path="eye" element={<EyeTab />}/>
+
                           <Route exact path="ears" element={<EntTab />}/>
                           <Route exact path="head" element={<HeadTab />}/>
                           <Route exact path="gastro" element={<GastroTab />}/>
@@ -154,6 +164,8 @@ function App() {
                           <Route exact path="seizure-activity" element={<SeizureTab />}/>
                           <Route exact path="cranial-nerve" element={<CranialTab />}/>
                           <Route exact path="neurological-notes" element={<NeuroNotesTab />}/>
+						  //End of Jeris branch additions
+
                           <Route exact path="patient-selection" element={<SelectionTable />} />
                         </>
                       }
@@ -178,8 +190,10 @@ function App() {
 
               
             </div>
+            </DndProvider> //Hannah drag and drop
         );
+
+        
     }
 
 export default App;
-

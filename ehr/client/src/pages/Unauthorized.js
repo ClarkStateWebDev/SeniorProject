@@ -1,4 +1,3 @@
-
 const Unauthorized = () => {
     return (
         <section>
@@ -8,5 +7,4 @@ const Unauthorized = () => {
         </section>
     )
 }
-
 export default Unauthorized

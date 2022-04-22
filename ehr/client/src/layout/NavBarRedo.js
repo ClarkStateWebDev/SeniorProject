@@ -1,3 +1,13 @@
+/************************************************************************** 
+Name: NavBarRedo.js
+
+Author: Jeris Payne 
+
+Purpose: Add a sidebar for navigation including links only for admins, and a logout function and a close function
+
+Modified: 4-7-2022
+
+**************************************************************************/
 
 import React, { useContext, useState } from 'react';
 //import { useIntl } from 'react-intl';

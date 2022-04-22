@@ -11,10 +11,16 @@ Purpose: functions that separate out the code to route requests from the code th
 Modified:
 
 **************************************************************************/
+/* require() (import) models */
 const db = require("../models")
+/* require() (import) patient models */
 const Patient = db.patient;
+/* NOT NEEDED PROBABLY. WHO KNOWS REALLY */
 const User = require('../models/User.model.js');
 
+/* export getAllPatients function from the module so it can be used by other programs with the import statement.
+   There are not any require params for this function. This function will return all patients in JSON format. 
+*/
 exports.getAllPatients = (req, res, next) => {
     Patient.findAll()
     .then((data) => {
@@ -25,6 +31,9 @@ exports.getAllPatients = (req, res, next) => {
     });
   };
 
+ /* export getPatient function from the module so it can be used by other programs with the import statement.
+    A patient ID is required for this function. This function will return that patient in JSON format.
+*/ 
 exports.getPatient = (req, res, next) => {
   const patient_id = req.params.patient_id;
   Patient.findAll( {
@@ -41,6 +50,12 @@ exports.getPatient = (req, res, next) => {
   });
 };
 
+/* export updatePatient function from the module so it can be used by other programs with the import statement.
+   This function has optional params of {firstName, lastName, date_birth, bio_sex, gender, userId}
+   patient_id is required. 
+   This function will update the patient information based on which params are sent. 
+   The only return will be a success message. 
+*/
 exports.updatePatient = (req, res, next) => {
   const {patient_id, firstName, lastName, date_birth, bio_sex, gender, userId} = req.body;
   console.log(req.body);
@@ -57,7 +72,13 @@ exports.updatePatient = (req, res, next) => {
     });
     res.json("SUCCESS");
 };
-  
+
+/* export createPatient function from the module so it can be used by other programs with the import statement.
+   { firstName, lastName, date_birth, bio_sex, gender, userId } are required for this function. 
+   If no information is sent and error message will be returned.
+   The medID is created using a random number.
+   If successful a 'success' message will be returned. 
+*/
 exports.createPatient = (req, res) => {
     // Validate request
     if (!req.body) {
@@ -84,10 +105,15 @@ exports.createPatient = (req, res) => {
       }).catch(err => {
           console.log("Patient Add Error")
         console.log(err);
-      });
+      });        
       res.json("SUCCESS");
   };
 
+/* export deletePatient function from the module so it can be used by other programs with the import statement.
+   This function requires a patient_id param. 
+   This function will delete the patient based on the patient id sent. 
+   On success a 'success' message will be returned. 
+*/
   exports.deletePatient = (req, res, next) => {
     const patient_id = req.params.patient_id;
     Patient.destroy({
@@ -98,6 +124,10 @@ exports.createPatient = (req, res) => {
     res.json("DELETED SUCCESSFULLY");
   };
 
+/* export getUserPatient function from the module so it can be used by other programs with the import statement.
+   user_id is required for this function. 
+   This function will find patients that are assigned to that user, then return in JSON format
+*/
   exports.getUserPatient = (req, res, next) => {
     const user_id = req.params.user_id;
     Patient.findAll( {

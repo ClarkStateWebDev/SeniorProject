@@ -7,5 +7,4 @@ const Unauthorized = () => {
         </section>
     )
 }
-
 export default Unauthorized

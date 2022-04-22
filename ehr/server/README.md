@@ -1,118 +1,114 @@
-# Node.js Rest API with Express & MySQL
-
-## Project Information
+# Server Information
 
 * Uses Express for building REST API
 * cors provides Express middleware to enable CORS with various options.
 * cors origin: http://localhost:8081
 * Initially have defined a simple GET route for testing
-* listens on port 8080 for incoming requests
+* listens on port 3001 for incoming requests
 * MySQL DB configuration located in app/config/db.config.js
 * Note that as of version 4.16+ express now has body-parser built in so there is no need to install it as a dependency.
 
-For detailed info on how this was created, visit: [Build Node.js Rest APIs with Express & MySQL](https://www.bezkoder.com/node-js-rest-api-express-mysql/)
+## Installation and Setup
+If this is your fist time running the app you will need to GitBash to the server folder and follow these steps: 
 
----
-## To run the project
-
-### 1. Install dependencies
-```
+### Step one: **Install all dependencies.**
+```bash
 npm install
 ```
+### Step two: **Configure database, JWT, and the email service.**
 
-### 2. Run
+Connect your database using your table name, user, and password. Do not change the dialect unless the email server has changed. This can be set in: ***server/app/config/db.config.js.*** It will look like the following code.
+```javascript
+module.exports = {
+    HOST: "localhost",
+    USER: "YourUserName",
+    PASSWORD: "YourPassword",
+    DB: "YourTableName",
+    dialect: "mysql"
+ };
 ```
-node server.js
+Add secret code to : ***server/app/config/auth.config.js.*** The secret code is whatever you want it to be.
+```javascript
+module.exports = {
+    secret: "secret password"
+ };
+```
+Add password to: ***server/app/config/email.config.js.***
+```javascript
+module.exports = {
+    USER: "",
+    PASSWORD: "",
+    SERVICE: ""
+  };
 ```
 
-### 3. Open http://localhost:8080/ in your browser
-You will see the message "Welcome to Clark State EHR"
+### Step three: **Create tables and an admin user using sequelize.**
 
----
+In server.js change the following line. 
 
-## Project Structure Information
+**FROM:**
+```javascript
+db.sequelize.sync().then(result =>{
+```
 
-### Configure & Connect to MySQL database
-1. Folder for configuration is app/config/db
-In the file app/config/db.config.js you will see the following
-        module.exports = {
-		 HOST: "localhost",
-         USER: "root",
-         PASSWORD: "123456",
-         DB: "testdb"
-        };
+**TO:**
+```javascript
+db.sequelize.sync({force:true}).then(result =>{
+```
+This will create the tables needed to run the current app. **After you run the app the first time and your tables are created change the code back or your tables will be dropped and your application will not work.**
+You will now uncomment the following code in ***server/app/models/index.js*** 
+```javascript
+  db.role.create({
+    id: 1,
+    name:"user"
+  })
 
+  db.role.create({
+    id: 2,
+    name:"admin"
+  })
 
-2. create a database connection that uses configuration above.
-The file for connection is db.js, we put it in app/models folder that will contain model in the next step.
+  db.user.create({
+  email:"admin@admin.com", 
+  first_name:"Admin", 
+  last_name:"Admin", 
+  isAdmin:1, 
+  password:"$2b$10$fX4p.34jAVzw/Nq622G/BOewxZG3Gl/Y34ytc88dxaFHDrvoqwS56"}
+  ).then(user => {
+    user.setRoles(2);
+  }) 
+  
+  db.user.create({
+  email:"user@user.com", 
+  first_name:"User", 
+  last_name:"User", 
+  isAdmin:0, 
+  password:"$2b$10$fX4p.34jAVzw/Nq622G/BOewxZG3Gl/Y34ytc88dxaFHDrvoqwS56"}
+  ).then(user => {
+    user.setRoles(1);
+  }) 
+```
 
-		const mysql = require("mysql");
-		const dbConfig = require("../config/db.config.js");
+This will create the initial Admin and User account. The password is the encrypted password so do not change anything. **After you run the app and the users are created comment it back** or it will keep creating that Admin and User account.
 
-        // Create a connection to the database
-        const connection = mysql.createConnection({
-          host: dbConfig.HOST,
-          user: dbConfig.USER,
-          password: dbConfig.PASSWORD,
-          database: dbConfig.DB
-        });
-        
-        // open the MySQL connection
-        connection.connect(error => {
-          if (error) throw error;
-          console.log("Successfully connected to the database.");
-        });
-        
-        module.exports = connection;
+The login information is:
 
-### Define the Model
-In models folder, there is a file called tutorial.model.js. Here, we've defined a constructor for Tutorial object, and we use the database connection above to write CRUD functions:
-*create a new Tutorial
-*find a Tutorial by id
-*get all Tutorials
-*get all published Tutorials
-*update a Tutorial by id
-*remove a Tutorial
-*remove all Tutorials
+**Email: admin@admin.com Password: password**
 
-### Define Routes
+**Email: user@user.com Password: password**
 
-When a client sends request for an endpoint using HTTP request (GET, POST, PUT, DELETE), we need to determine how the server will response. It’s why we’re gonna setup the routes.
-
-These are routes we define:
-
-    /tutorials: GET, POST, DELETE
-    /tutorials/:id: GET, PUT, DELETE
-
-Create a routes folder inside app folder, then create tutorial.routes.js file
-
-### Create the Controller
-
-Now we create a controllers folder inside app folder, then we have a file named tutorial.controller.js. Our controller will be written inside this with CRUD functions:
-
-* create
-* findAll
-*findOne
-*findAllPublished
-*update
-*delete
-*deleteAll
-
----
-
-## Test the API 
-Use Postman to test the API
-
-1. Open Postman
-
-2. Run the Node.js application with command: node server.js.
-The console should show:
-
-    Server is running on port 8080.
-    Successfully connected to the database.
-    
-3. Using Postman, test all the APIs above.
-
-Create a new Tutorial using **POST /tutorials**  API
-
-[![Postman screenshot](https://www.bezkoder.com/wp-content/uploads/2019/09/nodejs-rest-api-express-mysql-create-tutorial.png)]
+After you create an admin and user account through the app feel free to delete these Admin and User accounts. These are only so you can login as an admin or user to test the functionality. If you delete these accounts without creating another admin account you will lose the ability to create additional users unless you create the admin account again through the script. 
+```javascript
+  db.user.create({
+  email:"admin@admin.com", 
+  first_name:"Admin", 
+  last_name:"Admin", 
+  isAdmin:1, 
+  password:"$2b$10$fX4p.34jAVzw/Nq622G/BOewxZG3Gl/Y34ytc88dxaFHDrvoqwS56"}
+  ).then(user => {
+    user.setRoles(2);
+  }) 
+```
+You will not have to follow these steps again. This is only to create the tables.
+## Troubleshooting
+If you are having issues creating your initial database reread the instructions and try again. Make sure that your **user, roles, and user_roles** tables have been create. If not then something went wrong during the process. If you are still having issues refer to the [sequelize](https://sequelize.org/master/index.html) documentation to better understand how it is creating the tables.

@@ -11,7 +11,9 @@ Modified:
 
 **************************************************************************/
 module.exports = {
-    USER: "",
-    PASSWORD: "",
+
+    USER: "ADD USER HERE",
+    PASSWORD: "ADD PASSWORD HERE",
     SERVICE: "gmail"
   };
+

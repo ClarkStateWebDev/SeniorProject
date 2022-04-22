@@ -11,9 +11,11 @@ Modified:
 
 **************************************************************************/
 module.exports = {
-    HOST: "localhost",
-    USER: "",
-    PASSWORD: "",
-    DB: "",
+
+    HOST: "ADD HOST HERE",
+    USER: "ADD USER HERE",
+    PASSWORD: "ADD PASSWORD HERE",
+    DB: "ADD DB HERE",
     dialect: "mysql"
   };
+

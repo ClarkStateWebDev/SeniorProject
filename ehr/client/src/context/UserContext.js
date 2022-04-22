@@ -1,3 +1,15 @@
+/************************************************************************** 
+Name: db.config.js
+
+Created: 19 Feb 2022
+
+Author: Blaylock 
+
+Purpose: create the context for the logged in user including properties 
+
+Modified:
+
+**************************************************************************/
 import { createContext, useState, useEffect } from 'react';
 import {
     BrowserRouter as Router,
@@ -39,6 +51,7 @@ export const UserProvider = ({ children }) => {
       if(isAuth){
           setUser({...user, [user.name]: user.value });
           setIsAuth("true");
+          console.log("Roles: " + user.roles)
           setRoles(user.roles);
       };
   }; 

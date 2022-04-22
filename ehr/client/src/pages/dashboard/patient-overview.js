@@ -42,7 +42,7 @@ const PatientOverview = (props) =>{
                         <td style={{fontWeight: 'bold'}}>Allergies</td>
                     </tr>
                     <tr>
-                        <td>1</td>
+                        <td>{props.patient.patient_id}</td>
                         <td>{props.patient.date_birth}</td>
                         <td>9/9/2021</td>
                         <td>Full Code</td>
