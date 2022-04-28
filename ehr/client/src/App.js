@@ -6,7 +6,6 @@ import {
     Routes
 } from 'react-router-dom';
 import './assets/styles/App.css';
-
 import UserContext from './context/UserContext';
 import Layout from './components/Layout';
 import Login from './pages/login/login';
@@ -14,16 +13,15 @@ import ForgotPassword from '../src/pages/login/forgotPassword';
 import LoggedOut from '../src/pages/login/loggedOut';
 import ResetPassword from '../src/pages/login/ResetPassword';
 import Unauthorized from './components/Unauthorized';
-
 import Missing from './components/Missing';
 import Home from '../src/pages/Home'
 import DailyCare from '../src/pages/Daily-Care'
 import HistoryTab from '../src/pages/History/historyTab';
-import imagingTab from '../src/pages/imaging/imagingTab';
+//import ImagingTab from '../src/pages/Imaging/imagingTab';
+import ImagingTab from '../src/pages/imaging/imagingTab';
 import LabTab from '../src/pages/labs/labTab';
 import CareTab from '../src/pages/Care Plan/careTab';
 import SelectionTable from '../src/pages/PTable'
-
 import VitalTab from '../src/pages/VitalSigns/vitals';
 import WeightTab from '../src/pages/Weight/weightTab';
 import PainTab from '../src/pages/Pain/painTab';
@@ -33,7 +31,6 @@ import EliminationTab from '../src/pages/elimination/elimination';
 import IntakeTab from '../src/pages/intake/intakeTab';
 import HygieneTab from '../src/pages/hygiene/hygieneTab';
 import MobilityTab from '../src/pages/mobility/mobilityTab';
-
 import AdminDash from '../src/pages/admin/admin-dash'
 import AdminUserAdd from '../src/pages/admin/admin-user-add'
 import AdminPatientAdd from '../src/pages/admin/admin-patient-add'
@@ -43,7 +40,6 @@ import Med from '../src/pages/admin/med-data';
 import Override from '../src/pages/admin/override-data'
 import { DndProvider } from "react-dnd"; //Hannah DnD import statement add by Hannah Stickford
 import{ HTML5Backend } from "react-dnd-html5-backend"; //Hannah DnD import statement add by Hannah Stickford
-// Jeris code branch - added 3/22/22 by AH
 import EyeTab from './pages/eye/eyeTab';
 import EntTab from './pages/earNoseThroat/entTab';
 import HeadTab from './pages/head/headTab';
@@ -101,7 +97,6 @@ function App() {
             
             <div className="App">
 
-                {/*<DragDrop />*/} /* Hannah change */
                 <Routes>
                     <Route path="/" element={<Layout />}>
                       
@@ -112,7 +107,7 @@ function App() {
                           <Route exact path="dashboard" element={<Home />} />
                           <Route exact path="daily-care" element={<DailyCare/>}/>
                           <Route exact path="history" element={<HistoryTab/>}/>
-                          <Route exact path="imaging" element={<imagingTab />}/> //Does "imaging" need a capital I?
+                          <Route exact path="imaging" element={<imagingTab />}/>
                           <Route exact path="labs" element={<LabTab/>}/>
                           <Route exact path="care" element={<CareTab/>}/>
                           <Route exact path="vitals" element={<VitalTab />}/>
@@ -125,10 +120,6 @@ function App() {
                           <Route exact path="hygiene" element={<HygieneTab />}/>
                           <Route exact path="mobility" element={<MobilityTab />}/>
                           <Route exact path="eye" element={<EyeTab />}/>
-
-						  // Jeris code branch - added 3/22/22 by AH
-						  <Route exact path="eye" element={<EyeTab />}/>
-
                           <Route exact path="ears" element={<EntTab />}/>
                           <Route exact path="head" element={<HeadTab />}/>
                           <Route exact path="gastro" element={<GastroTab />}/>
@@ -164,8 +155,6 @@ function App() {
                           <Route exact path="seizure-activity" element={<SeizureTab />}/>
                           <Route exact path="cranial-nerve" element={<CranialTab />}/>
                           <Route exact path="neurological-notes" element={<NeuroNotesTab />}/>
-						  //End of Jeris branch additions
-
                           <Route exact path="patient-selection" element={<SelectionTable />} />
                         </>
                       }

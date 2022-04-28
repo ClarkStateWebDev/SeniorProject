@@ -1,7 +1,7 @@
 // import statements
 import React, { useState } from 'react';
-import {Modal, Button, TextInput, Dropdown, DateTimePicker, TextField} from '@hospitalrun/components'
-
+//import {Modal, Button, TextInput, Dropdown, DateTimePicker, TextField} from '@hospitalrun/components'
+import {Modal, Button, TextInput, TextField} from '@hospitalrun/components'
 const WoundLocTableForm = () => {
     const [show, setShow] = useState(false)
     const [startDate, setStartDate] = useState(new Date())

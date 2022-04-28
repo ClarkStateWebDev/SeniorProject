@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PatientOverview from '../dashboard/patient-overview'
+import PatientOverview from '../dashboard/patient-overview';
 import {Tabs, Tab, AppBar} from '@material-ui/core';
 import Footer from '../../layout/footer'
 import { Breadcrumb, BreadcrumbItem } from '@hospitalrun/components'

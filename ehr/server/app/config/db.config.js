@@ -12,10 +12,10 @@ Modified:
 **************************************************************************/
 module.exports = {
 
-    HOST: "ADD HOST HERE",
-    USER: "ADD USER HERE",
-    PASSWORD: "ADD PASSWORD HERE",
-    DB: "ADD DB HERE",
+    HOST: "ENTER HOST HERE",
+    USER: "ENTER USER HERE",
+    PASSWORD: "ENTER PASSWORD HERE",
+    DB: "ENTER DB HERE",
     dialect: "mysql"
   };
 

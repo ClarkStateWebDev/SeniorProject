@@ -18,7 +18,7 @@ class Footer extends React.Component {
         return (
             <footer id="sticky-footer" className="flex-shrink-0 py-4 text-white-50">
                 <div className="container text-center">
-                    <small>Copyright &copy; Clark State College Medical Center 2022</small>
+                    <small>Copyright &copy; Clark State College 2022</small>
                 </div>
             </footer>
         );
