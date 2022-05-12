@@ -1,4 +1,4 @@
-import DragDrop from "../../components/DragDrop";
+//import DragDrop from "../../components/DragDrop";
 import React, { Component } from "react";
 
 class PerPulse extends Component {
@@ -7,7 +7,7 @@ class PerPulse extends Component {
         return(
             <>
 
-            <DragDrop></DragDrop>
+            <p>coming soon</p>
             </>
         )}
 };

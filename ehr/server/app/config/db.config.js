@@ -12,10 +12,10 @@ Modified:
 **************************************************************************/
 module.exports = {
 
-    HOST: "ADD HOST HERE",
-    USER: "ADD USER HERE",
-    PASSWORD: "ADD PASSWORD HERE",
-    DB: "ADD DB HERE",
+    HOST: "localhost",
+    USER: "AHUser",
+    PASSWORD: "AppleSucks7",
+    DB: "clark_state_ehr",
     dialect: "mysql"
   };
 

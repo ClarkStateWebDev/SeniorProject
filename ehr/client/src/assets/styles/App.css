@@ -25,14 +25,7 @@ main {
   z-index: 100 !important;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  background-color: #1d1d1d;
-}
+
 
 .App-logo {
   height: 40vmin;

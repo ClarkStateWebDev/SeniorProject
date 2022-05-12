@@ -19,7 +19,7 @@ import Missing from './components/Missing';
 import Home from '../src/pages/Home'
 import DailyCare from '../src/pages/Daily-Care'
 import HistoryTab from '../src/pages/History/historyTab';
-import imagingTab from '../src/pages/imaging/imagingTab';
+import ImagingTab from '../src/pages/imaging/imagingTab';
 import LabTab from '../src/pages/labs/labTab';
 import CareTab from '../src/pages/Care Plan/careTab';
 import SelectionTable from '../src/pages/PTable'
@@ -81,7 +81,7 @@ import SeizureTab from './pages/neuro/seizureTab';
 import CranialTab from './pages/neuro/cranialTab';
 import NeuroNotesTab from './pages/neuro/neuroNotesTab';
 
-import DragDrop from './components/DragDrop'; //Hannah Import Drag Drop
+//import DragDrop from './components/DragDrop'; //Hannah Import Drag Drop
 import PerPulse from './pages/PerPulse/PerPulse'; //Hannah Import Drag Drop
 import PerPulseTab from './pages/PerPulse/PerPulseTab'; //Hannah Import Drag Drop
 
@@ -100,8 +100,7 @@ function App() {
           <DndProvider backend={HTML5Backend}> 
             
             <div className="App">
-
-                {/*<DragDrop />*/} /* Hannah change */
+                {/*<DragDrop />*/} 
                 <Routes>
                     <Route path="/" element={<Layout />}>
                       
@@ -112,7 +111,7 @@ function App() {
                           <Route exact path="dashboard" element={<Home />} />
                           <Route exact path="daily-care" element={<DailyCare/>}/>
                           <Route exact path="history" element={<HistoryTab/>}/>
-                          <Route exact path="imaging" element={<imagingTab />}/> //Does "imaging" need a capital I?
+                          <Route exact path="imaging" element={<ImagingTab />}/>
                           <Route exact path="labs" element={<LabTab/>}/>
                           <Route exact path="care" element={<CareTab/>}/>
                           <Route exact path="vitals" element={<VitalTab />}/>
@@ -125,10 +124,6 @@ function App() {
                           <Route exact path="hygiene" element={<HygieneTab />}/>
                           <Route exact path="mobility" element={<MobilityTab />}/>
                           <Route exact path="eye" element={<EyeTab />}/>
-
-						  // Jeris code branch - added 3/22/22 by AH
-						  <Route exact path="eye" element={<EyeTab />}/>
-
                           <Route exact path="ears" element={<EntTab />}/>
                           <Route exact path="head" element={<HeadTab />}/>
                           <Route exact path="gastro" element={<GastroTab />}/>
@@ -180,7 +175,6 @@ function App() {
                           <Route exact path="override-data" element={<Override />} />
                         </>
                       }
-                      <Route path="*" element={<Missing />} /> 
                       <Route exact path="forgotpassword" element={<ForgotPassword />}/>
                       <Route exact path="loggedOut" element={<LoggedOut />}/>
                       <Route exact path="reset/:token" element={<ResetPassword />}/>
